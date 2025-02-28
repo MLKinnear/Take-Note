@@ -206,9 +206,9 @@ http://localhost:5000/
 
 ## Reflection Statement
 
-This midterm project has been one of the most time-consuming projects I have ever done. I spent approximately three full days working on my app with the intention of building a task and client creation app.
+This midterm project has been one of the most time-consuming projects I have ever done. I spent three days working on the first iteration, intending to build a task and client creation app.
 
-After battling the authentication and login aspect first, I felt completely defeated. The statement **"Keep it simple, stupid"** rang loud. I decided to print out the project outline and rubric and follow it like work instructions. This approach worked very well.
+After battling the authentication and login aspect first, and running into nothing but problems, I felt completely defeated. The statement **"Keep it simple, stupid"** rang loud. I decided to print out the project outline and rubric and follow it like work instructions. This approach worked very well.
 
 Besides all the coding and learning, the biggest takeaway from this project is to **not go rogue and keep it simple**!
 
