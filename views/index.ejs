@@ -1,0 +1,36 @@
+<!-- Renders navbar -->
+<%- include('partials/navbar') %>
+<div class="container-sm">
+    <h2>Current Notes</h2>
+    <!-- Adds message if no notes added -->
+    <% if (notes.length === 0) { %>
+        <h4 class="text-center my-3">No Notes, Let's start adding!</h4>
+    <% } else { %>
+        <div class="container-sm">
+            <div class="row">
+                <!-- Adds a card for each note in DB -->
+                <% notes.forEach(note => { %>
+                    <div class="col-sm-12 col-md-4 col-lg-3 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex align-items-center">
+                                    <!-- Adds an image of pin if set 'true' -->
+                                    <% if (note.pinned) { %>
+                                        <img src="/images/pin.png" alt="Pinned Note" title="Pinned" width="20" height="20" class="me-2">
+                                    <% } %>
+                                    <%= note.title %>
+                                </h5>
+                                <p class="card-text"><%= note.description %></p>
+                                <p class="text-muted">
+                                    <small>Last modified: <%= new Date(note.updatedAt).toLocaleString() %></small>
+                                </p>
+                                <!-- Directs use to specific note -->
+                                <a href="/notes/<%= note._id %>" class="btn btn-dark">View Note</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    <% } %>
+</div>

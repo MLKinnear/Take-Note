@@ -1,0 +1,35 @@
+<!-- Renders navbar -->
+<%- include('partials/navbar') %>
+<div class="container-sm">
+    <div style="background-color: white; border-radius: 5px; padding: 10px;">
+        <!-- Populates note with DB data -->
+        <h2><%= note.title %></h2>
+        <p><strong>Note:</strong> <%= note.description %></p>
+        <p><%= note.pinned ? 'Pinned' : 'Not Pinned' %></p>
+        <p><strong>Created At:</strong> <%= new Date(note.createdAt).toLocaleString() %></p>
+        <p><strong>Updated At:</strong> <%= new Date(note.updatedAt).toLocaleString() %></p>
+    </div>
+    <div style="margin-top: 10px;">
+        <!-- Directs user to update page for the specific note -->
+        <a class="btn btn-dark" href="/notes/edit/<%= note._id %>" role="button">Edit</a>
+        <!-- Deletes note with confirmation alert -->
+        <form id="deleteForm" action="/notes/<%= note._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-dark" onclick="return confirmDelete()">Delete</button>
+        </form>
+        <!-- Directs user back to all notes -->
+        <a class="btn btn-dark" href="/notes" role="button">Back to Notes</a>
+    </div>
+</div>
+<!-- Script in file to optimize load time -->
+<script>
+    function confirmDelete() {
+        if (confirm("Are you sure you want to delete this note?")) {
+            setTimeout(() => {
+                alert("Note Deleted!");
+                window.location.href = "/notes"; // Redirect after alert
+            }, 100); 
+            return true;
+        } 
+        return false;
+    }
+</script>

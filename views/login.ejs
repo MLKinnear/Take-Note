@@ -1,0 +1,31 @@
+<div>
+    <h2 class="d-flex justify-content-center" style="margin: 5px;">Login</h2>
+    <!-- Displays message with successful registration -->
+    <% if (typeof successMessage !== 'undefined') { %>
+        <div class="alert alert-success" id="successAlert">
+            <%= successMessage %>
+        </div>
+    <% } %>    
+    <!-- Displays error message when login is unsuccessful -->
+    <% if (typeof errorMessage !== 'undefined') { %>
+        <div class="alert alert-danger"><%= errorMessage %></div>
+    <% } %>
+    <div class="d-flex justify-content-center">
+        <!-- Login form that posts to DB through auth API -->
+        <form style="min-width: 350px;" action="/api/auth/login" method="POST">
+            <div style="margin: 5px;">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" name="email" autocomplete="email" required>
+            </div>
+            <div style="margin: 5px;">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" name="password" autocomplete="current-password" required>
+            </div>
+            <button style="margin: 5px;" type="submit" class="btn btn-dark">Login</button>
+        </form>
+    </div>
+    <div class="d-flex justify-content-center">
+        <!-- Directs user to registration page -->
+        <p>Don't have an account?&nbsp;</p><a style="color: black;" href="/register">Register here</a>
+    </div>
+</div>

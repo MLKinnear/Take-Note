@@ -1,0 +1,28 @@
+<!-- Renders navbar -->
+<%- include('partials/navbar') %>
+<div class="container-sm">
+    <!-- Displays error message if caught -->
+    <% if (typeof errorMessage !== 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+    <!-- Creation form that is posted to DB -->
+    <form action="/notes/create" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title of Note" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Note</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+        </div>
+        <div style=" margin: 10px;">
+            <input type="checkbox" id="pinned" name="pinned" value="true">
+            <label for="pinned"><strong> Pin Note </strong></label><br>
+        </div>
+        <button type="submit" class="btn btn-dark">Create Note</button>
+        <!-- Directs user to notes page -->
+        <a class="btn btn-dark" href="/notes" role="button">Back to Notes</a>
+    </form>
+</div>
